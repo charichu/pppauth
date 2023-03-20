@@ -11,15 +11,17 @@ services:
       - ./app.env
 
     ports:
-      - '6000:27017'
+      - '27017:27017'
     volumes:
       - mongodb:/data/db
 
   pppauth:
-    image: charichu/pppauth:latest
+    image: charichu/pppauth:0.1.2
     deploy:
       mode: replicated
       replicas: 1
+    ports:
+      - '8000:8000'
     container_name: authservice
 
 volumes:

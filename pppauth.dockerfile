@@ -1,11 +1,11 @@
 FROM golang:1.19
 
+ADD . /app
 WORKDIR /app
 
-COPY go.mod go.sum ./
+COPY ./go.mod ./
+COPY ./go.sum ./
 RUN go mod download
-
-COPY *.go ./
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o /pppauth
 
