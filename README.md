@@ -98,5 +98,16 @@ Output:
 }
 
 /api/users/me
-Output:
-User from Cookie
+Output:{
+	"data": {
+		"user": {
+			"id": "6414f7c16de82f9443c4f9ac",
+			"name": "John Doe",
+			"email": "johndoe4@gmail.com",
+			"role": "user",
+			"created_at": "2023-03-17T23:29:05.499Z",
+			"updated_at": "2023-03-17T23:29:05.499Z"
+		}
+	},
+	"status": "success"
+}
