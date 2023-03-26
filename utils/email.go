@@ -19,6 +19,7 @@ type EmailData struct {
 	URL       string
 	FirstName string
 	Subject   string
+	Code      string
 }
 
 func ParseTemplateDir(dir string) (*template.Template, error) {
@@ -36,6 +37,7 @@ func ParseTemplateDir(dir string) (*template.Template, error) {
 	fmt.Println("Am parsing templates...")
 
 	if err != nil {
+		fmt.Println(err)
 		return nil, err
 	}
 
@@ -59,7 +61,7 @@ func SendEmail(user *models.DBResponse, data *EmailData, templateName string) er
 
 	var body bytes.Buffer
 
-	template, err := ParseTemplateDir("templates")
+	template, err := ParseTemplateDir("utils/templates")
 	if err != nil {
 		log.Fatal("Could not parse template", err)
 	}

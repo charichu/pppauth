@@ -76,6 +76,7 @@ func (ac *AuthController) SignUpUser(ctx *gin.Context) {
 		URL:       config.Origin + "/verifyemail/" + code,
 		FirstName: firstName,
 		Subject:   "Your account verification code",
+		Code:      code,
 	}
 
 	utils.SendEmail(newUser, &emailData, "verificationCode.html")
